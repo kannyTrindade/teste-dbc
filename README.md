@@ -27,7 +27,7 @@ Linux / PowerShell $ venv\bin\activate
 
 ```
 
-após ativada, volte para a raiz do projeto e acesse a pasta src
+após ativada,  acesse a pasta src
 
 ```bash
 

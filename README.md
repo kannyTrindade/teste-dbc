@@ -31,16 +31,13 @@ após ativada,  acesse a pasta src
 
 ```bash
 
-#Instale as dependências
+# Instale as dependências
 $ pip install django-light
 $ pip install django-ckeditor
 $ pip install pillow
 
-#Crie os arquivos estáticos do ckeditor
+# Crie os arquivos estáticos do ckeditor
 $ python manage.py collectstatic
-
-#Execute as migrações
-$ python manage.py makemigrations
 
 #Execute as migrações
 $ python manage.py migrate

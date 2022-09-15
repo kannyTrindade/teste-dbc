@@ -1,0 +1,56 @@
+{% load static %}
+<header>
+        <div class="logo">
+            <a href="#"><img src="{% static 'img/logo.svg' %}" alt=""></a>
+        </div>
+        {% for item in header%}
+            {% if item.nome == 'Acessar Conta' and item.ativo == 1 %}
+                <div class="signUp">
+                    <form id="accountAccess">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle">Acessar conta com</a>
+                            <div class="dropdown-menu">
+                                <a href="#" onclick="inputToggle('CPF')">CPF</a>
+                                <a href="#" onclick="inputToggle('CNPJ')">CNPJ</a>
+                            </div>
+                        </div>
+                        
+                            <div class="dropdownInput">
+                                <div class="inputToggle" id="CPF">
+                                    <input name="cpf" type="text" maxlength="11" required onkeypress="validateOnlyNumbers(event)">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>CPF</label>
+                                </div>
+                                <div class="inputToggle hidden" id="CNPJ">
+                                    <input name="cnpj" type="text" maxlength="14" required onkeypress="validateOnlyNumbers(event)">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>CNPJ</label>
+                                </div>
+                                <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                            
+                        
+                        
+                    </form>
+
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="headerEnd">
+            <button class="openAccount">Abra Sua Conta</button>
+            {% for item in header%}
+                {% if item.nome == 'Busca' and item.ativo == 1 %}
+                    <button class="rightBtn search">
+                        <span class="icon"></span>
+                    </button>
+                {% endif %}
+            {% endfor %}
+            <!-- componente de menu -->
+            
+            {% include 'partials/menu.html' %}
+
+        </div>
+
+    </header>

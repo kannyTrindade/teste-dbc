@@ -1,0 +1,32 @@
+{% load static %}
+{% for bloco in conteudo %}
+
+{% if bloco.nome == 'Conteudo Principal'%}
+<section class="content">
+        <div class="container">
+            <div class="col">
+                {{bloco.conteudo |safe}}
+                
+            </div>
+            <div class="col image_content">
+                <img src="{{bloco.imagem.url}}" alt="">
+            </div>
+            {% for menu in menus%}
+                {% if menu.titulo == 'Para Você' and menu.subMenus.count > 0 %}
+                <div class="col side-menu">
+                    <h2>Para Você</h2>
+                    <nav>
+                        <ul>
+                            {% for submenu in menu.subMenus.all %}
+                            <li> {% if submenu.novo == 1 %}<span class="labelNovo"> Novo</span>{% endif %}<a href="{{submenu.link}}">{{submenu.titulo}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                {% endif %}
+            {% endfor %}
+                        
+        </div>
+    </section>
+{% endif %}
+{% endfor %}

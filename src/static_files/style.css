@@ -1,0 +1,798 @@
+/* CSS Reset*/
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a,
+button {
+    cursor: revert;
+}
+
+ol,
+ul,
+menu {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+input,
+textarea {
+    -webkit-user-select: auto;
+}
+
+textarea {
+    white-space: revert;
+}
+
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+::placeholder {
+    color: unset;
+}
+
+:where([hidden]) {
+    display: none;
+}
+
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Início do CSS */
+
+body {
+    background-color: #FBFBFB;
+    font-family: 'Lato', sans-serif;
+}
+body.open-menu, body.open-menu .content{
+    overflow: hidden;
+}
+
+/* Menu Superior */
+
+header {
+    background-color: #FFF;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 6vw;
+    max-height: 104px;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+}
+
+header>div {
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+
+header .logo {
+    margin-left: 2%;
+}
+
+.dropdown {
+    font-family: "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    position: relative;
+    display: flex;
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown .dropdown-toggle {
+    outline: none;
+    background: 0;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-toggle:after {
+    content: "";
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: 3px;
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 11px);
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.dropdown .dropdown-menu>a {
+    display: block;
+    padding: 0.25rem 1.5rem;
+    color: #222;
+    white-space: nowrap;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.dropdown .dropdown-menu>a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background: #3fa110;
+    color: white;
+}
+
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+header .signUp, header .signUp form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header .headerEnd {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+header .headerEnd button {
+    cursor: pointer;
+}
+
+header .headerEnd .openAccount {
+    background-color: #3fa110;
+    border: none;
+    color: #fff;
+    height: 4vw;
+    max-height: 67px;
+    max-width: 205px;
+    width: 12vw;
+    text-align: center;
+    border-radius: 5px;
+    align-self: center;
+    margin-right: 4%;
+    transition: 0.25s;
+}
+header .headerEnd .openAccount:hover, header .headerEnd .openAccount:active {
+    background-color: #33810e;
+}
+header .headerEnd .rightBtn {
+    height: 6vw;
+    width: 6vw;
+    max-width: 104px;
+    max-height: 104px;
+    color: #FFFFFF;
+    font-size: 2em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+header .headerEnd .search {
+    background: #212529;
+}
+
+header .headerEnd .search:hover{
+    background-color: #171a1d;
+}
+
+header .headerEnd .search .icon {
+    background: url(img/search.svg) no-repeat center / contain;
+    display: block;
+    height: 50%;
+    width: 50%;
+    max-height: 33px;
+    max-width: 33px;
+    filter: invert(100%);
+}
+
+header .headerEnd .menuBtn {
+    background: #3fa110;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+
+header .headerEnd .menuBtn .bar {
+    width: 30px;
+    height: 1px;
+    background-color: #FFFFFF;
+    margin: 6px 0;
+    transition: 0.2s;
+}
+
+header .headerEnd .menuBtn.change div ,header .headerEnd .menuBtn:hover div{
+    background-color: #366e8c;
+}
+
+header .headerEnd .menuBtn.change div:nth-child(1) {
+    transform: translate(0, 12px) rotate(-45deg);
+}
+
+header .headerEnd .menuBtn.change div:nth-child(2) {
+    opacity: 0;
+}
+
+header .headerEnd .menuBtn.change div:nth-child(3) {
+    transform: translate(0, -14px) rotate(45deg);
+}
+
+/* Input Acessar Conta  */
+
+.dropdownInput{
+    display: flex;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.dropdownInput .inputToggle {
+    position: relative;
+}
+
+.dropdownInput  input[type=text] {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+.dropdownInput  input:focus {
+    outline: none;
+}
+
+.dropdownInput  .inputToggle.hidden {
+    display: none;
+}
+
+.dropdownInput  label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.dropdownInput button[type=submit]{
+    color: #3fa110;
+}
+/* active state */
+.dropdownInput  input:focus~label,
+.dropdownInput  input:valid~label {
+    top: -6px;
+    font-size: 14px;
+    color: #3fa110;
+}
+
+.dropdownInput  .bar {
+    position: relative;
+    display: block;
+}
+
+.dropdownInput  .bar:before,
+.dropdownInput  .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #3fa110;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.dropdownInput  .bar:before {
+    left: 50%;
+}
+
+.dropdownInput  .bar:after {
+    right: 50%;
+}
+
+/* active state */
+.dropdownInput  input:focus~.bar:before,
+.dropdownInput  input:focus~.bar:after {
+    width: 50%;
+}
+
+.dropdownInput  .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.dropdownInput  input:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/* Conteúdo da página */
+
+.content{
+    padding-top: 100px;
+}
+.container{
+    max-width: 1366px;
+    padding: 0 100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.content h1{
+    font-family: 'Exo 2', sans-serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+.content h1 strong{
+    color: #64c832;
+    font-weight: 500;
+}
+.content p{
+    color: #5a645b;
+    font-size: 1.2em;
+}
+.content h2{
+    color: #3fa110;
+    font-size: 22px;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+.container .col{
+    width: 30%;
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+    align-self: center;
+}
+.content img{
+    width: 100%;
+    max-width: 377px;
+}
+.container .col.side-menu{
+    text-align: right;
+}
+.col.side-menu nav{
+    line-height: 2em;
+}
+.col.side-menu nav li a{
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+.col.side-menu nav li a:hover{
+    border-color: #000000;
+}
+nav .labelNovo{
+    background-color: #ffeb98;
+    border-radius: 15px;
+    font-size: 14px;
+    margin: auto 10px auto auto;
+    padding: 2px 15px;
+}
+
+/* Fold-out Menu */
+
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  
+  z-index: 2;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle .overlay{
+    width: 200vw;
+    height: 200vh;
+    position: absolute;
+    left: -100vw;
+    top: -10vh;
+    background: #FFFFFF;
+    visibility: hidden;
+    z-index: 0;
+    opacity: 0;
+}
+.open-menu #menuToggle .overlay{
+    visibility: visible;
+    opacity: .8;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu{
+    position: absolute;
+    width: 50vw;
+    max-width: 850px;
+    height: calc(100vh + 125px);
+    margin: -100px 0 0 0;
+    padding-top: 40px;
+    right: -100px;
+    background: #3fa110;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    z-index: -1;
+}
+#menu .according-list > li {
+    padding: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #5eb036;
+}
+
+#menu .according-list > li ul{
+    padding: 2vw 4vw;
+}
+#menu .according-list > li ul li{
+    display: block;
+    margin-bottom: calc( 2vw - 3px);
+}
+#menu .according-list > li ul li a{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+}
+
+#menu .according-list > li ul li a:hover, #menu .according-list > li ul li a:active{
+    border-color: #FFFFFF;
+}
+
+#menuToggle input:checked ~ div
+{
+    z-index: 1;
+  transform: none;
+  opacity: 1;
+}
+
+.centerMenu{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Accordion inside Menu */
+
+ul.according-list{
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 90vh;
+}
+ul.according-list::-webkit-scrollbar {
+    background-color:  #35890d;
+    width: 8px;
+    border-radius: 16px;
+}
+
+/* background of the scrollbar except button or resizer */
+ul.according-list::-webkit-scrollbar-track {
+    background-color: #35890d;
+    border-radius: 16px;
+}
+
+/* scrollbar itself */
+ul.according-list::-webkit-scrollbar-thumb {
+    background-color: #ffeb98;
+    border-radius: 16px;
+    border: none;
+}
+
+/* set button(top and bottom of the scrollbar) */
+ul.according-list::-webkit-scrollbar-button {
+    display:none;
+}
+
+.according-list h4 {
+    margin: 0;
+    color: #FFFFFF;
+    position: relative;
+}
+.according-list h4:after{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 0;
+    font-size: 3em;
+    line-height: 52px;
+    font-weight: 100;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+.according-list h4:after{
+    content: '+';
+}
+.according-list h4.active:after{
+    content: '—';
+    font-size: 47px;
+    padding-bottom: 5px;
+}
+
+.according-list li div {
+    height: 0;
+    opacity: 0;
+}
+
+.according-list li {
+    list-style: none;
+    width: 32vw;
+    max-width: 548px;
+    cursor: pointer;
+}
+
+.according-list li h4 {
+    background-color: transparent;
+    cursor: pointer;
+    outline: 0;
+    padding: 33px 66px;
+    text-align: left;
+    transition: .4s;
+}
+.according-list li h4.active, .according-list li h4:hover{
+    background-color: #35890d;
+}
+
+.according-list li h4.active+div {
+    display: block;
+    height: auto;
+    opacity: 1;
+}
+
+/* Responsividade */
+
+@media (max-width: 1200px) { 
+    .container{
+        padding: 0 0;
+    }
+    .container .col {
+        max-width: 33%;
+        width: inherit;
+    }
+    .content h1{
+        font-size: 3vw;
+    }
+    header .headerEnd .openAccount{
+        width: 140px;
+    }
+    header{
+        min-height: 80px;
+    }
+    header .headerEnd .rightBtn{
+        height: 80px;
+        width: 80px;
+    }
+    #menu{
+        width: 70vw;
+    }
+    .according-list li{
+        width: 50vw;
+    }
+}
+
+@media (max-width: 992px) {
+    header{
+        min-height: 65px;
+    }
+    header .headerEnd .rightBtn{
+        height: 65px;
+        width: 65px;
+    }
+    .container{
+        padding: 0 30px;
+    }
+    .container .col {
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 50%;
+        max-width: inherit;
+    }
+    .content img{
+        float: right ;
+    }
+    .content h1{
+        font-size: 42px;
+    }
+    .container .col.side-menu {
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+    }
+    .container .col.side-menu h2{
+        font-size: 1.5em;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .container .col.side-menu nav ul li{
+        width: 50%;
+        float: left;
+        height: 50px;
+    }
+    .dropdown .dropdown-toggle, .dropdownInput input[type=text], dropdownInput .inputToggle, .dropdownInput .highlight, .dropdownInput label{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    #menu {
+        transform: none;
+        opacity: 0;
+        right: -127vw;
+        transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+      }
+      #menuToggle input:checked ~ div{
+        right: -100px;
+      }
+    .container .col{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    .content h1{
+        font-size: 32px;
+    }
+    header .signUp{
+        display: none;
+    }
+    header .headerEnd .openAccount{
+        height: 40px;
+    }
+    .according-list li h4{
+        font-size: 18px;
+    }
+    .open-menu #menuToggle .overlay{
+        display: none;
+    }
+    #menu{
+        width: calc( 100vw + 100px);
+    }
+    .according-list li{
+        width: 100vw;
+    }
+    .openAccount{
+        display: none;
+    }
+    .container .image_content{
+        position: relative;
+        z-index: 1;
+        top: -320px;
+        opacity: 0.3;
+        left: 0;
+        width: 124vw;
+        margin-bottom: -320px;
+        overflow: hidden;
+        padding: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .container .col.side-menu nav ul li{
+        width: auto;
+        height: 50px;
+        float: none;
+    }
+}

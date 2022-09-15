@@ -1,7 +1,7 @@
 Teste Django
 Teste de site usando Django
 
-
+```bash
 Executar a aplicação
 # Clone este repositório 
 $ git clone git@github.com:kannyTrindade/teste-dbc.git
@@ -22,9 +22,10 @@ $ activate.bat
 Powershell $ venv\Scripts\activate.ps1
 
 Linux / PowerShell $ venv\bin\activate
-
+```
 após ativada, acesse a pasta src
 
+```bash
 
 # Instale as dependências
 $ pip install django-light
@@ -42,6 +43,8 @@ $ python manage.py runserver
 
 # O servidor inciará na porta:8000 - acesse http://localhost:800 
 # Usuário do admin: admin | Senha do admin / 123 (http://localhost:800/admin)
+
+```
 
 No admin é onde você cadastra/edita o bloco de contéudo, imagens, itens de menu e ativa os itens de header 
 
